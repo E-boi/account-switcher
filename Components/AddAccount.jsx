@@ -13,7 +13,6 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 	}
 
 	render() {
-		console.log(this.state.account);
 		return (
 			<Modal className='acc-switch-modal'>
 				<Modal.Header>
