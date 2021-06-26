@@ -23,7 +23,7 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 					{this.state.accounts?.map(account => (
 						<Card>
 							<div
-								className={this.state.selected === account.token && 'selected-account'}
+								className={['account', this.state.selected === account.token && 'selected-account'].filter(Boolean).join(' ')}
 								onClick={() => {
 									let selected = this.state.selected;
 									selected = account.token;
