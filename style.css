@@ -1,0 +1,17 @@
+.account-details {
+	display: flex;
+	align-items: center;
+}
+
+.account-details img {
+	height: 64px;
+	width: 64px;
+	border-radius: 99px;
+}
+
+.account-details .colorStandard-2KCXvj {
+	margin-left: 10px;
+}
+
+.selected-account {
+}
