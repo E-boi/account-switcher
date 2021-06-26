@@ -4,6 +4,69 @@
 	.separator-2-RRj_ {
 		box-shadow: none !important;
 	}
+	
+	// Account Info
+	.content-1LAB8Z {
+		background-color: var(--background-tertiary);
+		padding: 10px 4px 0 10px !important;
+		margin-bottom: 20px !important;
+		border-radius: 5px;
+		margin: 0 10px;
+		[aria-hidden='true'] {
+			display: none;
+		}
+		.cardPrimary-1Hv-to {
+			background-color: transparent;
+			margin-bottom: 10px;
+			border: none;
+			.account {
+				background-color: var(--background-secondary);
+				transition: background-color 250ms ease;
+				align-items: center;
+				cursor: pointer;
+				border-radius: 5px;
+				display: flex;
+				padding: 10px;
+				.account-details {
+					flex-direction: column;
+					display: flex;
+					.accountName {
+						color: var(--text-normal);
+						user-select: text;
+						font-size: large;
+					}
+					.Token {
+						align-items: center;
+						margin-top: 10px;
+						display: flex;
+						.tokenValue {
+							background-color: var(--background-secondary-alt);
+							color: var(--background-secondary-alt);
+							user-select: text;
+							border-radius: 5px;
+							font-size: smaller;
+							margin-left: 5px;
+							padding: 3px;
+							&:hover {
+								background-color: transparent;
+								color: var(--text-normal);
+								cursor: pointer;
+							}
+						}
+					}
+				}
+				img {
+					margin-right: 13px;
+					border-radius: 5%;
+					height: 60px;
+				}
+			}
+		}
+		.selected-account {
+			background-color: var(--background-accent) !important;
+		}
+	}
+
 	// Footer
 	.footer-2gL1pp {
 		.lookFilled-1Gx00P.colorBrand-3pXr91:nth-child(2) {
@@ -16,70 +79,7 @@
 	}
 }
 
-// Account List
-.content-1LAB8Z {
-	background-color: var(--background-tertiary);
-	padding: 10px 4px 0 10px !important;
-	margin-bottom: 20px !important;
-	border-radius: 5px;
-	margin: 0 10px;
-	[aria-hidden='true'] {
-		display: none;
-	}
-	.cardPrimary-1Hv-to {
-		background-color: transparent;
-		margin-bottom: 10px;
-		border: none;
-		.account {
-			background-color: var(--background-secondary);
-			transition: background-color 250ms ease;
-			align-items: center;
-			cursor: pointer;
-			border-radius: 5px;
-			display: flex;
-			padding: 10px;
-			.account-details {
-				flex-direction: column;
-				display: flex;
-				.accountName {
-					color: var(--text-normal);
-					user-select: text;
-					font-size: large;
-				}
-				.Token {
-					align-items: center;
-					margin-top: 10px;
-					display: flex;
-					.tokenValue {
-						background-color: var(--background-secondary-alt);
-						color: var(--background-secondary-alt);
-						user-select: text;
-						border-radius: 5px;
-						font-size: smaller;
-						margin-left: 5px;
-						padding: 3px;
-						&:hover {
-							background-color: transparent;
-							color: var(--text-normal);
-							cursor: pointer;
-						}
-					}
-				}
-			}
-			img {
-				margin-right: 13px;
-				border-radius: 5%;
-				height: 60px;
-			}
-		}
-	}
-	.selected-account {
-		background-color: var(--background-accent) !important;
-	}
-}
-
 // Toolbar Icon
-
 .switch-acc-button polygon {
 	fill: var(--interactive-normal);
 }
