@@ -34,21 +34,22 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 							>
 								<img src={account.pfp} />
 								<div className='account-details'>
-									<Text class='accountName'>{account.name}</Text>
-									<Tooltip text='Edit' position='top' color='black'>
-										<Icon
-											name='Pencil'
-											onClick={() =>
-												open(() =>
-													React.createElement(EditAccountModal, {
-														account: { ...account, idx },
-														getSetting: this.props.getSetting,
-														setSetting: this.props.setSetting,
-													})
-												)
-											}
-										/>
-									</Tooltip>
+							        <div class='accountName'>{account.name}
+										<Tooltip text='Edit' position='top' color='black'>
+											<Icon
+												name='Pencil'
+												onClick={() =>
+													open(() =>
+														React.createElement(EditAccountModal, {
+															account: { ...account, idx },
+															getSetting: this.props.getSetting,
+															setSetting: this.props.setSetting,
+														})
+													)
+												}
+											/>
+										</Tooltip>
+									</div>
 									<div className='Token'>
 										<Text className='tokenText'>Token:</Text>
 										<Text className='tokenValue'>{account.token}</Text>

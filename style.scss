@@ -34,6 +34,12 @@
 						color: var(--text-normal);
 						user-select: text;
 						font-size: large;
+						display: flex;
+						[aria-label="Edit"]{
+							position: relative;
+							margin-left: 5px;
+							top: 1px;
+						}
 					}
 					.Token {
 						align-items: center;
@@ -71,6 +77,9 @@
 						margin: 0 5px;
 						height: 30px;
 						padding: 0;
+						&:hover{
+							background-color: #b13234;
+						}
 					}
 				}
 				img {
