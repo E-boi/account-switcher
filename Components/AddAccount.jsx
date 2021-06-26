@@ -22,13 +22,13 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 				<Modal.Content>
 					{this.state.account && (
 						<Card>
-							<TextInput value={this.state.account.name} onChange={value => this.editAccountName(value)}>
+							<TextInput value={this.state.account.name} onChange={value => this.editAccount('name', value)}>
 								Name:
 							</TextInput>
-							<TextInput value={this.state.account.pfp} onChange={value => this.editAccountPFP(value)}>
+							<TextInput value={this.state.account.pfp} onChange={value => this.editAccount('name', value)}>
 								Profile:
 							</TextInput>
-							<TextInput value={this.state.account.token} onChange={value => this.editAccountToken(value)}>
+							<TextInput value={this.state.account.token} onChange={value => this.editAccount('name', value)}>
 								Token:
 							</TextInput>
 						</Card>
@@ -53,21 +53,9 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 		return getModule(['getCurrentUser'], false).getCurrentUser();
 	}
 
-	editAccountToken(token) {
+	editAccount(modify, value) {
 		const account = { ...this.state.account };
-		account.token = token;
-		this.setState({ account });
-	}
-
-	editAccountPFP(pfp) {
-		const account = { ...this.state.account };
-		account.pfp = pfp;
-		this.setState({ account });
-	}
-
-	editAccountName(name) {
-		const account = { ...this.state.account };
-		account.name = name;
+		account[modify] = value;
 		this.setState({ account });
 	}
 

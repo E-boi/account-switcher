@@ -1,4 +1,4 @@
-const { React, getModule } = require('powercord/webpack');
+const { React } = require('powercord/webpack');
 const { Modal } = require('powercord/components/modal');
 const { FormTitle, Card, Button } = require('powercord/components');
 const { close } = require('powercord/modal');
@@ -22,13 +22,13 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 				<Modal.Content>
 					{this.state.account && (
 						<Card>
-							<TextInput value={this.state.account.name} onChange={value => this.editAccountName(value)}>
+							<TextInput value={this.state.account.name} onChange={value => this.editAccount('name', value)}>
 								Name:
 							</TextInput>
-							<TextInput value={this.state.account.pfp} onChange={value => this.editAccountPFP(value)}>
+							<TextInput value={this.state.account.pfp} onChange={value => this.editAccount('pfp', value)}>
 								Profile:
 							</TextInput>
-							<TextInput value={this.state.account.token} onChange={value => this.editAccountToken(value)}>
+							<TextInput value={this.state.account.token} onChange={value => this.editAccount('token', value)}>
 								Token:
 							</TextInput>
 						</Card>
@@ -49,21 +49,9 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 		);
 	}
 
-	editAccountToken(token) {
+	editAccount(modify, value) {
 		const account = { ...this.state.account };
-		account.token = token;
-		this.setState({ account });
-	}
-
-	editAccountPFP(pfp) {
-		const account = { ...this.state.account };
-		account.pfp = pfp;
-		this.setState({ account });
-	}
-
-	editAccountName(name) {
-		const account = { ...this.state.account };
-		account.name = name;
+		account[modify] = value;
 		this.setState({ account });
 	}
 
