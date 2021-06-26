@@ -11,10 +11,12 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 		this.state = {
 			accounts: props.getSetting('accounts', []),
 			selected: null,
+			showToken: {},
 		};
 	}
 
 	render() {
+		console.log(this.state.showToken);
 		return (
 			<Modal className='acc-switch-modal'>
 				<Modal.Header>
@@ -26,7 +28,12 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 							<div
 								className={['account', this.state.selected === account.token && 'selected-account'].filter(Boolean).join(' ')}
 								onClick={e => {
-									if (e.target.type == 'button' || e.target.parentElement.parentElement?.parentElement.type === 'button') return;
+									if (
+										e.target.type == 'button' ||
+										e.target.parentElement.parentElement?.parentElement.type === 'button' ||
+										e.target.parentElement.className === 'Token'
+									)
+										return;
 									let selected = this.state.selected;
 									selected = account.token;
 									this.setState({ selected });
@@ -53,7 +60,12 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 									</div>
 									<div className='Token'>
 										<Text className='tokenText'>Token:</Text>
-										<Text className='tokenValue'>{account.token}</Text>
+										<Text
+											onClick={() => this.setState({ showToken: { ...this.state.showToken, [account.id]: !this.state.showToken[account.id] } })}
+											className={['tokenValue', this.state.showToken[account.id] && 'reveal'].filter(Boolean).join(' ')}
+										>
+											{account.token}
+										</Text>
 									</div>
 								</div>
 								<div className='account-buttons'>
@@ -70,12 +82,9 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 						Switch
 					</Button>
 					<Button
-						onClick={() => {
-							if (this.state.accounts?.filter(acc => acc.token === getModule(['getToken'], false).getToken()).length > 0) return;
-							open(() => React.createElement(AddAccountModal, { getSetting: this.props.getSetting, setSetting: this.props.setSetting }));
-						}}
+						onClick={() => open(() => React.createElement(AddAccountModal, { getSetting: this.props.getSetting, setSetting: this.props.setSetting }))}
 					>
-						Add current account
+						Add account
 					</Button>
 				</Modal.Footer>
 			</Modal>
