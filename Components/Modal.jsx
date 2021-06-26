@@ -1,6 +1,6 @@
 const { React, getModule } = require('powercord/webpack');
 const { Modal } = require('powercord/components/modal');
-const { FormTitle, Card, Button, Text } = require('powercord/components');
+const { FormTitle, Card, Button, Text, Icon, Tooltip } = require('powercord/components');
 const { open } = require('powercord/modal');
 const AddAccountModal = require('./AddAccount');
 const EditAccountModal = require('./EditAccount');
@@ -35,6 +35,20 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 								<img src={account.pfp} />
 								<div className='account-details'>
 									<Text class='accountName'>{account.name}</Text>
+									<Tooltip text='Edit' position='top' color='black'>
+										<Icon
+											name='Pencil'
+											onClick={() =>
+												open(() =>
+													React.createElement(EditAccountModal, {
+														account: { ...account, idx },
+														getSetting: this.props.getSetting,
+														setSetting: this.props.setSetting,
+													})
+												)
+											}
+										/>
+									</Tooltip>
 									<div className='Token'>
 										<Text className='tokenText'>Token:</Text>
 										<Text className='tokenValue'>{account.token}</Text>
@@ -43,20 +57,6 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 								<div className='account-buttons'>
 									<Button onClick={() => this.removeAccount(idx)} color={Button.Colors.RED} size={Button.Sizes.SMALL}>
 										X
-									</Button>
-									<Button
-										onClick={() =>
-											open(() =>
-												React.createElement(EditAccountModal, {
-													account: { ...account, idx },
-													getSetting: this.props.getSetting,
-													setSetting: this.props.setSetting,
-												})
-											)
-										}
-										size={Button.Sizes.SMALL}
-									>
-										Edit
 									</Button>
 								</div>
 							</div>
