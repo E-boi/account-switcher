@@ -44,7 +44,7 @@
 							color: var(--background-secondary-alt);
 							user-select: text;
 							border-radius: 5px;
-							font-size: smaller;
+							font-size: 12px;
 							margin-left: 5px;
 							padding: 3px;
 							&:hover {
@@ -53,6 +53,26 @@
 								cursor: pointer;
 							}
 						}
+					}
+				}
+				.account-buttons{
+					justify-content: center;
+					align-items: center;
+					flex-direction: row;
+					position: absolute;
+					display: flex;
+					right: 0px;
+					top:5px;
+					button{
+						justify-content: center;
+						align-items: center;
+						min-height: 30px;
+						min-width: 30px;
+						display: flex;
+						margin: 0 5px;
+						height: 30px;
+						width: 30px;
+						padding: 0;
 					}
 				}
 				img {
