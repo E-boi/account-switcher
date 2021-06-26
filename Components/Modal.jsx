@@ -34,7 +34,8 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 							>
 								<img src={account.pfp} />
 								<div className='account-details'>
-							        <div class='accountName'>{account.name}
+									<div class='accountName'>
+										{account.name}
 										<Tooltip text='Edit' position='top' color='black'>
 											<Icon
 												name='Pencil'
