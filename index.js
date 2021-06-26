@@ -8,7 +8,7 @@ const Modal = require('./Components/Modal');
 
 module.exports = class AccSwitcher extends Plugin {
 	startPlugin() {
-		this.loadStylesheet('style.css');
+		this.loadStylesheet('style.scss');
 		const classes = getModule(['iconWrapper', 'clickable'], false);
 		const HeaderBarContainer = getModuleByDisplayName('HeaderBarContainer', false);
 		inject('switch-acc-button', HeaderBarContainer.prototype, 'renderLoggedIn', (args, res) => {
