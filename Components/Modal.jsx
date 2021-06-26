@@ -30,12 +30,14 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 									this.setState({ selected });
 								}}
 							>
+								<img src={account.pfp} />
 								<div className="account-details">
-									<img src={account.pfp} />
-									<Text>{account.name}</Text>
+									<Text class="accountName">{account.name}</Text>
+									<div className="Token">
+										<Text className="tokenText">Token:</Text>
+										<Text class="tokenValue">{account.token}</Text>
+									</div>
 								</div>
-								<Text>Token:</Text>
-								<Text>{account.token}</Text>
 							</div>
 						</Card>
 					))}
