@@ -54,12 +54,11 @@
 							font-size: 12px;
 							margin-left: 5px;
 							padding: 3px;
-						}
-						.reveal {
-							user-select: none;
-							background-color: transparent;
-							color: var(--text-normal);
-							cursor: pointer;
+							&.reveal {
+								background-color: transparent;
+								color: var(--text-normal);
+								cursor: pointer;
+							}
 						}
 					}
 				}
