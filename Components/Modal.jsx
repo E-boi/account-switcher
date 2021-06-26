@@ -15,9 +15,9 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 
 	render() {
 		return (
-			<Modal className="acc-switch-modal">
+			<Modal className='acc-switch-modal'>
 				<Modal.Header>
-					<FormTitle tag="h3">Accounts</FormTitle>
+					<FormTitle tag='h3'>Accounts</FormTitle>
 				</Modal.Header>
 				<Modal.Content>
 					{this.state.accounts?.map(account => (
@@ -31,11 +31,11 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 								}}
 							>
 								<img src={account.pfp} />
-								<div className="account-details">
-									<Text class="accountName">{account.name}</Text>
-									<div className="Token">
-										<Text className="tokenText">Token:</Text>
-										<Text class="tokenValue">{account.token}</Text>
+								<div className='account-details'>
+									<Text class='accountName'>{account.name}</Text>
+									<div className='Token'>
+										<Text className='tokenText'>Token:</Text>
+										<Text className='tokenValue'>{account.token}</Text>
 									</div>
 								</div>
 							</div>
