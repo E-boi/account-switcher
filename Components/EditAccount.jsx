@@ -8,7 +8,7 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-			account: this.addAccount(),
+			account: props.account,
 		};
 	}
 
@@ -17,7 +17,7 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 		return (
 			<Modal className='acc-switch-modal'>
 				<Modal.Header>
-					<FormTitle tag='h3'>Add Account</FormTitle>
+					<FormTitle tag='h3'>Edit Account</FormTitle>
 				</Modal.Header>
 				<Modal.Content>
 					{this.state.account && (
@@ -49,10 +49,6 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 		);
 	}
 
-	getCurrentUser() {
-		return getModule(['getCurrentUser'], false).getCurrentUser();
-	}
-
 	editAccountToken(token) {
 		const account = { ...this.state.account };
 		account.token = token;
@@ -73,14 +69,7 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 
 	saveAccount(account) {
 		const accounts = this.props.getSetting('accounts', []);
-		accounts.push(account);
+		accounts[this.state.account.idx] = account;
 		this.props.setSetting('accounts', accounts);
-	}
-
-	addAccount() {
-		const { getToken } = getModule(['getToken'], false);
-
-		const account = { name: this.getCurrentUser().tag, token: getToken(), id: this.getCurrentUser().id, pfp: this.getCurrentUser().getAvatarURL() };
-		return account;
 	}
 };

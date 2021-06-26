@@ -3,6 +3,7 @@ const { Modal } = require('powercord/components/modal');
 const { FormTitle, Card, Button, Text } = require('powercord/components');
 const { open } = require('powercord/modal');
 const AddAccountModal = require('./AddAccount');
+const EditAccountModal = require('./EditAccount');
 
 module.exports = class SwitchaccModal extends React.PureComponent {
 	constructor(props) {
@@ -20,7 +21,7 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 					<FormTitle tag='h3'>Accounts</FormTitle>
 				</Modal.Header>
 				<Modal.Content>
-					{this.state.accounts?.map(account => (
+					{this.state.accounts?.map((account, idx) => (
 						<Card>
 							<div
 								className={['account', this.state.selected === account.token && 'selected-account'].filter(Boolean).join(' ')}
@@ -40,10 +41,23 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 									</div>
 								</div>
 								<div className='account-buttons'>
-									<Button color={Button.Colors.RED} size={Button.Sizes.SMALL}>
+									<Button onClick={() => this.removeAccount(idx)} color={Button.Colors.RED} size={Button.Sizes.SMALL}>
 										X
 									</Button>
-									<Button size={Button.Sizes.SMALL}>Edit</Button>
+									<Button
+										onClick={() =>
+											open(() =>
+												React.createElement(EditAccountModal, {
+													account: { ...account, idx },
+													getSetting: this.props.getSetting,
+													setSetting: this.props.setSetting,
+												})
+											)
+										}
+										size={Button.Sizes.SMALL}
+									>
+										Edit
+									</Button>
 								</div>
 							</div>
 						</Card>
@@ -68,6 +82,13 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 
 	getCurrentUser() {
 		return getModule(['getCurrentUser'], false).getCurrentUser();
+	}
+
+	removeAccount(account) {
+		const accounts = [...this.state.accounts];
+		accounts.splice(account, 1);
+		this.setState({ accounts });
+		this.props.setSetting('accounts', accounts);
 	}
 
 	loginTo(account) {
