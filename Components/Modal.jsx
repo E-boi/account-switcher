@@ -24,7 +24,8 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 						<Card>
 							<div
 								className={['account', this.state.selected === account.token && 'selected-account'].filter(Boolean).join(' ')}
-								onClick={() => {
+								onClick={e => {
+									if (e.target.type == 'button' || e.target.parentElement.parentElement?.parentElement.type === 'button') return;
 									let selected = this.state.selected;
 									selected = account.token;
 									this.setState({ selected });
@@ -37,6 +38,12 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 										<Text className='tokenText'>Token:</Text>
 										<Text className='tokenValue'>{account.token}</Text>
 									</div>
+								</div>
+								<div className='account-buttons'>
+									<Button color={Button.Colors.RED} size={Button.Sizes.SMALL}>
+										X
+									</Button>
+									<Button size={Button.Sizes.SMALL}>Edit</Button>
 								</div>
 							</div>
 						</Card>
