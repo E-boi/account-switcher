@@ -6,4 +6,4 @@ Credits to [Loremly](https://github.com/Loremly) for bring up the idea and styli
 ## Preview
 https://user-images.githubusercontent.com/54505527/123528624-bdb3c800-d6b6-11eb-9358-c5d961386097.mp4
 
-Check the [Wiki](https://github.com/E-boi/account-switcher/wiki) for help adding 
+Check the [Wiki](https://github.com/E-boi/account-switcher/wiki/Guide-to-adding-accounts!) for help adding 
