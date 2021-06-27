@@ -24,10 +24,10 @@ module.exports = class SwitchaccModal extends React.PureComponent {
 							<TextInput value={this.state.account.name} onChange={value => this.editAccount('name', value)}>
 								Name:
 							</TextInput>
-							<TextInput value={this.state.account.pfp} onChange={value => this.editAccount('name', value)}>
+							<TextInput value={this.state.account.pfp} onChange={value => this.editAccount('pfp', value)}>
 								Profile:
 							</TextInput>
-							<TextInput value={this.state.account.token} onChange={value => this.editAccount('name', value)}>
+							<TextInput value={this.state.account.token} onChange={value => this.editAccount('token', value)}>
 								Token:
 							</TextInput>
 						</Card>
